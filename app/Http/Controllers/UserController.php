@@ -50,9 +50,9 @@ class UserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        return redirect()
+            ->route('users.index')
+            ->with('message', "Se ha creado el usuario $user->name correctamente!");
     }
 
     /**
