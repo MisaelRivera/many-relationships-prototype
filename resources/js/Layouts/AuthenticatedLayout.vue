@@ -43,8 +43,8 @@ const showingNavigationDropdown = ref(false);
                                     Dashboard
                                 </NavLink>
                                 <NavLink
-                                    :href="route('admin.roles.index')"
-                                    :active="route().current('admin.roles.index')"
+                                    :href="route('admin.index')"
+                                    :active="route().current('admin.index')"
                                     v-if="hasRole('admin')"
                                 >
                                     Admin
@@ -157,8 +157,8 @@ const showingNavigationDropdown = ref(false);
                             Dashboard
                         </ResponsiveNavLink>
                         <ResponsiveNavLink
-                            :href="route('admin.roles.index')"
-                            :active="route().current('admin.roles.index')"
+                            :href="route('admin.index')"
+                            :active="route().current('admin.index')"
                             v-if="hasRole('admin')"
                         >
                             Admin

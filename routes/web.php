@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -28,9 +31,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function  () {
     Route::controller(AdminController::class)->group(function () {
         Route::prefix('/admin')->group(function () {
-            Route::get('/roles', 'rolesIndex')->name('admin.roles.index');
+            Route::get('/', 'index')->name('admin.index');
         });
     });
+    Route::resource('/users', UserController::class);
+    Route::resource('/roles', RoleController::class);
+    Route::resource('/permissions', PermissionController::class);
+
 });
+
 
 require __DIR__.'/auth.php';
